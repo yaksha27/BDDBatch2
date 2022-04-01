@@ -15,10 +15,12 @@ namespace MarsRovers.Steps
         {
             _scenarioContext = scenarioContext;
         }
-        [Given(@"Rover is at (.*), (.*)")]
-        public void GivenRoverIsAt(int p0, int p1)
+        [Given(@"Rover is at (\d+), (\d+)")]
+        public void GivenRoverIsAt(int x, int y)
         {
-            _scenarioContext.Pending();
+            Point position = new Point(x, y);
+            Rover rover = new Rover();
+            rover.SetPosition(position);
         }
 
         [Given(@"rover is pointing towards E")]
