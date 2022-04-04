@@ -91,7 +91,7 @@ namespace MarsRovers.Feature
             argumentsOfScenario.Add("90degreesTo", _90DegreesTo);
             argumentsOfScenario.Add("newDirection", newDirection);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Turn the rover in desired direction", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 2
+#line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -111,17 +111,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 3
-testRunner.Given("Rover is at 1, 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 4
-testRunner.And(string.Format("rover is pointing towards {0}", direction), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("Rover is at 1, 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 5
-testRunner.When(string.Format("rover turns {0}", _90DegreesTo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And(string.Format("rover is pointing towards {0}", direction), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 6
-testRunner.Then(string.Format("rover should be facing {0}", newDirection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When(string.Format("rover turns {0}", _90DegreesTo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 7
+ testRunner.Then(string.Format("rover should be facing {0}", newDirection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

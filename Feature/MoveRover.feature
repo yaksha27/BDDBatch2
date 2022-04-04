@@ -4,7 +4,7 @@ Scenario Outline: Move the rover
 	Given Rover is at <x>, <y>
 	And rover is pointing towards <direction>
 	When rover moves forward
-	Then rover should be at <newX> <newY>
+	Then rover should be at <newX>, <newY>
 	And rover should be facing <direction>
 
 	Examples:

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentAssertions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace MarsRovers.Steps
     class MoveRoverSteps
     {
         private readonly ScenarioContext _scenarioContext;
-
+        private Rover rover;
         public MoveRoverSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
@@ -18,33 +19,34 @@ namespace MarsRovers.Steps
         [Given(@"Rover is at (\d+), (\d+)")]
         public void GivenRoverIsAt(int x, int y)
         {
-            Point position = new Point(x, y);
-            Rover rover = new Rover();
+           Point position = new Point(x, y);
+             rover = new Rover();
             rover.SetPosition(position);
         }
 
-        [Given(@"rover is pointing towards E")]
-        public void GivenRoverIsPointingTowardsE()
+        [Given(@"rover is pointing towards ([NEWS]{1})")]
+        public void GivenRoverIsPointingTowardsDirection(string direction)
         {
+            rover.SetDirection(direction);
             _scenarioContext.Pending();
         }
 
         [When(@"rover moves forward")]
         public void WhenRoverMovesForward()
         {
-            _scenarioContext.Pending();
+            rover.Move();
         }
 
-        [Then(@"rover should be at (.*)")]
-        public void ThenRoverShouldBeAt(string p0)
+        [Then(@"rover should be at (\d+), (\d+)")]
+        public void ThenRoverShouldBeAt(int x, int y)
         {
-            _scenarioContext.Pending();
+            rover.GetPosition().Should().Be(new Point(x, y));
         }
 
-        [Then(@"rover should be facing E")]
-        public void ThenRoverShouldBeFacingE()
+        [Then(@"rover should be facing ([NEWS]{1})")]
+        public void ThenRoverShouldBeFacingE(string direction)
         {
-            _scenarioContext.Pending();
+            rover.GetDirection().Should().Be(direction);
         }
     }
 }
