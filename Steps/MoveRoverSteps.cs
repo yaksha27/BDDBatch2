@@ -26,7 +26,7 @@ namespace MarsRovers.Steps
         }
 
         [Given(@"rover is pointing towards ([NEWS]{1})")]
-        public void GivenRoverIsPointingTowardsDirection(string direction)
+        public void GivenRoverIsPointingTowardsDirection(char direction)
         {
             rover.SetDirection(direction);
         }
@@ -44,7 +44,7 @@ namespace MarsRovers.Steps
         }
 
         [Then(@"rover should be facing ([NEWS]{1})")]
-        public void ThenRoverShouldBeFacingE(string direction)
+        public void ThenRoverShouldBeFacingE(char direction)
         {
             rover.GetDirection().Should().Be(direction);
         }

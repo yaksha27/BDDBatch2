@@ -5,7 +5,7 @@ namespace MarsRovers
     internal class Rover
     {
         private Point _position;
-        private string _direction;
+        private char _direction;
 
         internal void SetPosition(Point position)
         {
@@ -17,12 +17,12 @@ namespace MarsRovers
             return _position;
         }
 
-        internal void SetDirection(string direction)
+        internal void SetDirection(char direction)
         {
             _direction = direction;
         }
 
-        internal string GetDirection()
+        internal char GetDirection()
         {
             return _direction;
         }
@@ -31,16 +31,16 @@ namespace MarsRovers
         {
             switch (_direction)
             {
-                case "N":
+                case 'N':
                     _position = new Point(_position.X, _position.Y + 1);
                     break;
-                case "S":
+                case 'S':
                     _position = new Point(_position.X, _position.Y - 1);
                     break;
-                case "E":
+                case 'E':
                     _position = new Point(_position.X + 1, _position.Y);
                     break;
-                case "W":
+                case 'W':
                     _position = new Point(_position.X - 1, _position.Y);
                     break;
 
