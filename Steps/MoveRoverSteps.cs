@@ -8,6 +8,7 @@ using TechTalk.SpecFlow;
 
 namespace MarsRovers.Steps
 {
+    [Binding]
     class MoveRoverSteps
     {
         private readonly ScenarioContext _scenarioContext;
@@ -28,7 +29,6 @@ namespace MarsRovers.Steps
         public void GivenRoverIsPointingTowardsDirection(string direction)
         {
             rover.SetDirection(direction);
-            _scenarioContext.Pending();
         }
 
         [When(@"rover moves forward")]
